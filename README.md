@@ -16,8 +16,7 @@ När webbläsaren läser din HTML bygger den ett *träd* av element: **DOM** (Do
 2. **Klona din fork:** *Code → HTTPS → kopiera adressen*. I terminalen (Ctrl+ö i VS Code): `git clone <adressen>`. Öppna den nya mappen i VS Code och starta *Live Server*.
 3. **Gör uppgiften.** Spara och kontrollera i webbläsaren och Console (F12) efter varje steg. Gör en commit efter varje avslutat steg: `git add .` och `git commit -m "Beskriv vad du gjorde"`.
 4. **Skicka upp** när du är klar: `git push`.
-5. **Fortsätt i `mitt-projekt`** med dagens projektsteg (längre ned).
-6. **Lämna in i Microsoft Forms.**
+5. **Lämna in i Microsoft Forms.**
 
 Fastnar du: skriv ner exakt var och vad du försökt (och vilket felmeddelande du fick), och ta det först i nästa handledda pass.
 
@@ -65,38 +64,6 @@ Del 2 i `main.js`: hämta `#meny-lista` och `#meny-rubrik`, anropa `visaMeny` oc
 
 I Console (eller tillfälligt i `main.js`): anropa `visaMeny(lista, [])`. Vilket meddelande får användaren? Skriv ett bättre, och ändra det i `ui.js`. Kontrollera att testerna fortfarande är gröna.
 
-## AI-spåret (nivå 1: Förutsäg och förklara)
-
-**Hitta riskerna i DOM-koden** (cirka 25 minuter, efter att du gjort din egen lösning)
-
-Du förutsäger vad koden gör innan den körs. AI förklarar och granskar, men skriver inte din lösning. Kod som skriver in text i sidan kan öppna för attacker. AI kan peka på riskerna, men du måste förstå dem.
-
-Regler: egen lösning först, du ska kunna förklara varje rad, och du loggar i `docs/ai-logg.md` i `mitt-projekt` under rubriken *Modul 5*. Reglerna står i `AI-REGLER-MODUL5.md`.
-
-1. Skriv din renderfunktion med textContent.
-2. Be AI granska den med prompten nedan, och fråga specifikt om innerHTML.
-3. Skriv om en rad med innerHTML och skriv in <img src=x onerror=alert(1)> som data. Vad händer?
-4. Byt tillbaka till textContent och upprepa.
-5. Förklara skillnaden i loggen med egna ord.
-
-Prompt att utgå från:
-
-```
-Granska min JavaScript som skriver till DOM:en:
-[klistra in koden]
-Finns det säkerhetsproblem eller dålig praxis?
-Förklara varje problem på nybörjarnivå
-och visa hur man provar att det är ett problem.
-```
-
-**Kontrollera med:**
-
-- Prova attacken själv i webbläsaren.
-- Läs om XSS i MDN eller OWASP.
-- Kan du förklara varför textContent är säkert?
-
-**I ditt projekt:** Rendera minst en lista från din data i DOM:en med textContent. Logga att du kontrollerat risken.
-
 ## Kontrollista: så vet du att du är klar
 
 - [ ] Alla 31 tester på `tests.html` är gröna (17 från igår och 14 nya).
@@ -105,7 +72,6 @@ och visa hur man provar att det är ett problem.
 - [ ] Du använder `textContent` och `createElement`, inte `innerHTML`, för data.
 - [ ] Du kan förklara skillnaden mellan `querySelector` och `querySelectorAll`.
 - [ ] Du har gjort minst sex commits.
-- [ ] Du har gjort AI-uppgiften och skrivit en post i `docs/ai-logg.md` i `mitt-projekt`.
 
 ## Tips om du fastnar
 
@@ -115,19 +81,6 @@ och visa hur man provar att det är ett problem.
 - Menyn syns dubbelt? Du anropar `visaMeny` två gånger utan att tömma, eller `replaceChildren` saknas.
 - Bilder syns inte? Sökvägen i `data.js` är relativ till `index.html`: `images/bulle.svg`.
 
-## Ditt projekt: Rendera din egen data i sidan
-
-Efter övningen jobbar du vidare i `mitt-projekt`, samma repo som i modul 4. Övningen här är träningsbanan, projektet är det som växer. Dagens steg står också i `PROJEKTSTEG-MODUL5.md` (som du kopierar till ditt projekt dag 1), under **Dag 4**.
-
-1. Välj en lista i din sida som idag ligger som hårdkodad HTML (kort, produkter, uppgifter, steg).
-2. Skapa `js/ui.js` med en funktion `skapaKort(objekt)` som returnerar ett element, byggt med `createElement` och `textContent`.
-3. Skapa `visaLista(container, lista)` som tömmer och fyller containern, och visar ett meddelande när listan är tom.
-4. Ersätt HTML-listan med en tom container och anropa `visaLista(...)` med din data från `js/data.js`.
-5. Skriv minst tre tester för `skapaKort` och `visaLista` i `tests/tests.js`.
-6. Commit och push.
-
-**Klart när:** Din sida visar listan från `data.js`, och testerna är gröna.
-
 ## Inlämning
 
 **Deadline: imorgon klockan 09.00.** Allt lämnas in i Microsoft Forms. Du behöver inte redovisa något muntligt.
@@ -135,8 +88,7 @@ Efter övningen jobbar du vidare i `mitt-projekt`, samma repo som i modul 4. Öv
 I formuläret fyller du i:
 
 1. Länk till din fork av det här repot.
-2. Länk till ditt `mitt-projekt`.
-3. Reflektion: Vad är skillnaden mellan `textContent` och `innerHTML`, och varför är det en säkerhetsfråga?
+2. Reflektion: Vad är skillnaden mellan `textContent` och `innerHTML`, och varför är det en säkerhetsfråga?
 
 ## Vill du mer? (frivilligt)
 
