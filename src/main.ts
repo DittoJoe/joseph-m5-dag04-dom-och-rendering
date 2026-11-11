@@ -1,7 +1,9 @@
-// Dag 4: DOM. Öppna sidan med Live Server och titta i Console (F12).
-import { meny } from "./data.js";
-import { visaMeny, uppdateraRubrik, markeraDagensRatt } from "./ui.js";
-import { billigast } from "./meny.js";
+// Dag 4: DOM. Kör npm run dev och titta i Console (F12).
+// querySelector kan ge null om elementet saknas. Hantera det med if eller ?. (TypeScript kräver det).
+// Tips: document.querySelector<HTMLElement>("#id") säger vilken sorts element du får.
+import { meny } from "./data";
+import { visaMeny, uppdateraRubrik, markeraDagensRatt } from "./ui";
+import { billigast } from "./meny";
 
 // DEL 1: utforska DOM:en ----------------------------------------------
 // 1. Hämta h1 med document.querySelector("h1") och skriv ut dess textContent.

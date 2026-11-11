@@ -1,12 +1,13 @@
-// Tester för meny.js. Ändra inte den här filen.
-import { test, assertEqual, assertTrue, visaResultat } from "./testlib.js";
-import { meny } from "./data.js";
+// Tester för meny.ts. Ändra inte den här filen.
+import { test, assertEqual, assertTrue, visaResultat } from "./testlib";
+import type { Ratt } from "./typer";
+import { meny } from "./data";
 import {
   vegetariskaRatter, rattNamn, prislista, hittaRatt, billigast,
   sorteraEfterPris, totalPris, perKategori, medNyttPris,
-} from "./meny.js";
+} from "./meny";
 
-const liten = [
+const liten: Ratt[] = [
   { id: 1, namn: "Bulle", pris: 35, kategori: "bakverk", vegetarisk: true },
   { id: 2, namn: "Kaffe", pris: 32, kategori: "dryck", vegetarisk: true },
   { id: 3, namn: "Skinkmacka", pris: 62, kategori: "lunch", vegetarisk: false },
@@ -31,15 +32,15 @@ test("prislista: namn och pris som text", () => {
 });
 
 test("hittaRatt: hittar via id", () => {
-  assertEqual(hittaRatt(liten, 2).namn, "Kaffe");
+  assertEqual(hittaRatt(liten, 2)?.namn, "Kaffe");
 });
 test("hittaRatt: okänt id ger undefined", () => {
   assertEqual(hittaRatt(liten, 99), undefined);
 });
 
 test("billigast: lägsta priset", () => {
-  assertEqual(billigast(liten).namn, "Kaffe");
-  assertEqual(billigast(meny).namn, "Chokladboll");
+  assertEqual(billigast(liten)?.namn, "Kaffe");
+  assertEqual(billigast(meny)?.namn, "Chokladboll");
 });
 test("billigast: tom lista ger undefined", () => {
   assertEqual(billigast([]), undefined);
