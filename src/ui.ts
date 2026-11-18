@@ -12,7 +12,23 @@ import type { Ratt } from "./typer";
 //      <p class="pris">35 kr</p>
 //    </article>
 export function skapaRattKort(ratt: Ratt): HTMLElement {
-  // TODO
+  let kort = document.createElement('article');
+  kort.dataset.id = 1;
+  let img = document.createElement('img');
+  img.src = ratt.bild;
+  img.alt = `Illustration av ${ratt.namn.toLowerCase()}`;
+  kort.append(img);
+  let header = document.createElement('h3');
+  header.textContent = ratt.namn;
+  kort.append(header);
+  let beskrivning = document.createElement('p');
+  beskrivning.textContent = ratt.beskrivning;
+  kort.append(beskrivning);
+  let pris = document.createElement('p');
+  pris.className = "pris";
+  pris.textContent = `${ratt.pris} kr`;
+  kort.append(pris);
+  return kort;
 }
 
 // 2. Töm containern och lägg in ett kort per rätt.
