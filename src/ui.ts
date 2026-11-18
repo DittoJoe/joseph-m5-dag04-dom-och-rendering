@@ -13,7 +13,7 @@ import type { Ratt } from "./typer";
 //    </article>
 export function skapaRattKort(ratt: Ratt): HTMLElement {
   let kort = document.createElement('article');
-  kort.dataset.id = 1;
+  kort.dataset.id = ratt.id;
   let img = document.createElement('img');
   img.src = ratt.bild;
   img.alt = `Illustration av ${ratt.namn.toLowerCase()}`;
@@ -61,5 +61,14 @@ export function uppdateraRubrik(element: HTMLElement, antal: number): void {
 // 4. Markera EN rätt som dagens rätt: klassen "dagens" ska finnas på kortet med rätt
 //    data-id, och inte på något annat kort. Anropas igen = markeringen flyttas.
 export function markeraDagensRatt(container: HTMLElement, id: number): void {
-  // TODO
+  let nuvarande = container.querySelector('.dagens');
+  if (nuvarande) {
+    nuvarande.classList.remove('dagens');
+  }
+  let dagens = container.querySelector(`[data-id="${id}"]`);
+  // console.log(id);
+  // console.log(`[data-id="${id}"]`);
+  // console.log(container.querySelector(`[data-id="${id}"]`));
+  // console.log(dagens);
+  dagens.classList.add('dagens');
 }
