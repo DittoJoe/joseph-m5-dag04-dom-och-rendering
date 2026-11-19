@@ -34,7 +34,7 @@ export function skapaRattKort(ratt: Ratt): HTMLElement {
 // 2. Töm containern och lägg in ett kort per rätt.
 //    Är listan tom: visa <p class="tom">Inga rätter hittades.</p> istället.
 export function visaMeny(container: HTMLElement, ratter: Ratt[]): void {
-  container.replaceChildren();
+  // container.replaceChildren();
   if (ratter.length) {
     for (let i = 0; i < ratter.length; i++) {
       container.append(skapaRattKort(ratter[i]));

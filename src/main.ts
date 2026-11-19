@@ -27,12 +27,17 @@ document.querySelector("#hero").classList.remove("dagens");
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
 // TODO
-p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">';
-p.textContent = '<img src="x" onerror="console.log(\'Attack!\')">';
+// p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">';
+// p.textContent = '<img src="x" onerror="console.log(\'Attack!\')">';
 
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
+let menyLista = document.querySelector("#meny");
+let menyRubrik = document.querySelector("#meny-rubrik");
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
+visaMeny(menyLista, meny);
+uppdateraRubrik(menyRubrik, meny.length);
 // 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)
 //    och markeraDagensRatt.
+markeraDagensRatt(menyLista, billigast(meny).id);
 // TODO
